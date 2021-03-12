@@ -1,0 +1,2 @@
+PolyDefault.java:30:13: compiler.err.cant.infer.local.var.type: genericDefault2, (compiler.misc.local.lambda.missing.target)
+1 error

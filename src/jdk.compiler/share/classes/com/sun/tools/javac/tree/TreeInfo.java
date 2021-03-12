@@ -275,6 +275,16 @@ public class TreeInfo {
         }
     }
 
+    /** Return true if a tree directly or indirectly represents a type application. */
+    public static JCTypeApply getTypeApplication(JCTree tree) {
+        switch(tree.getTag()) {
+            case TYPEAPPLY: return (JCTypeApply)tree;
+            case NEWCLASS: return getTypeApplication(((JCNewClass)tree).clazz);
+            case ANNOTATED_TYPE: return getTypeApplication(((JCAnnotatedType)tree).underlyingType);
+            default: return null;
+        }
+    }
+
     public static boolean isEnumInit(JCTree tree) {
         switch (tree.getTag()) {
             case VARDEF:

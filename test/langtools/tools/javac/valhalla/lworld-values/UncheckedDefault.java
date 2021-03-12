@@ -2,7 +2,7 @@
  * @test /nodynamiccopyright/
  * @bug 8210906
  * @summary [lworld] default value creation should not impose raw types on users.
- * @compile/fail/ref=UncheckedDefault.out -Xlint:all -Werror -XDrawDiagnostics -XDdev UncheckedDefault.java
+ * @run main UncheckedDefault
  */
 
 public primitive class UncheckedDefault<E> {
@@ -10,5 +10,6 @@ public primitive class UncheckedDefault<E> {
     UncheckedDefault(E value) { this.value = value; }
     public static void main(String [] args) {
         UncheckedDefault<String> foo = UncheckedDefault.default;
+        String s = foo.value;
     }
 }
